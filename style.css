@@ -1,0 +1,292 @@
+/* Add to your existing CSS */
+
+/* Row styles */
+.row {
+    display: flex;
+    gap: var(--grid-gap);
+}
+
+/* Grid styles */
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+    align-items: center; /* Center the grid horizontally */
+}
+
+/* Dot styles */
+.dot {
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: #ccc; /* Default color */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sleep dots */
+.dot.sleep {
+    background-color: #0F244E;
+}
+
+/* Hover effect */
+.row:hover .dot.sleep::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: blue;
+    border-radius: inherit;
+    animation: fillRow var(--animation-duration) forwards;
+}
+
+@keyframes fillRow {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Prevent animation on non-sleep dots */
+.row:hover .dot:not(.sleep)::before {
+    content: none;
+}
+
+
+/* ... existing CSS ... */
+
+/* Row styles */
+.row {
+    display: flex;
+}
+
+/* Dot styles */
+.dot {
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: #ccc;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sleep dots */
+.dot.sleep {
+    background-color: #0F244E;
+}
+
+.dot.sleep::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: blue;
+    border-radius: inherit;
+}
+
+/* Hover effect */
+.row:hover .dot.sleep::before {
+    animation: fillRowBefore var(--animation-duration) forwards;
+}
+
+@keyframes fillRowBefore {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Prevent animation on non-sleep dots */
+.row:hover .dot:not(.sleep) {
+    animation: none;
+}
+
+/* ... rest of the existing CSS ... */
+/* Base variables */
+:root {
+    --columns: 36;
+    --grid-gap: 2px;
+    --dot-size: 20px;
+    --min-dot-size: 10px; /* Minimum dot size */
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.input-container {
+    margin: 20px 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Grid styles */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), var(--dot-size));
+    grid-gap: var(--grid-gap);
+    justify-content: center;
+}
+
+.dot {
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+/* Responsive adjustments for screens narrower than 800px */
+@media (max-width: 800px) {
+    .grid {
+        grid-gap: var(--grid-gap);
+
+        /* Calculate the maximum dot size that fits */
+        /* First, calculate the available width */
+        --available-width: calc(100vw - 40px); /* Subtract container padding (20px on each side) */
+
+        /* Calculate total gap width */
+        --total-gap-width: calc((var(--columns) - 1) * var(--grid-gap));
+
+        /* Check if the total gap width exceeds the available width */
+        --max-dot-size: calc((var(--available-width) - var(--total-gap-width)) / var(--columns));
+
+        /* Ensure dot size does not go below min-dot-size */
+        --dot-size: max(var(--max-dot-size), var(--min-dot-size));
+
+        /* Apply the calculated dot size */
+        grid-template-columns: repeat(var(--columns), var(--dot-size));
+    }
+
+    .dot {
+        width: var(--dot-size);
+        height: var(--dot-size);
+    }
+}
+
+/* Fallback for very narrow screens (e.g., below 500px) */
+@media (max-width: 500px) {
+    .grid {
+        overflow-x: auto; /* Allow horizontal scrolling */
+    }
+}
+/* ... existing CSS ... */
+
+/* Container Styles */
+.container {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content */
+}
+
+/* Grid and Counter Container */
+.grid-counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right */
+    width: 100%;           /* Full width */
+}
+
+/* Grid styles */
+.grid {
+    /* ... existing grid styles ... */
+    align-self: center; /* Center the grid horizontally */
+}
+
+/* Free Time Counter Styles */
+.free-time-counter {
+    font-size: 2em;          /* Large text */
+    font-weight: bold;
+    color: #333;             /* Dark text color */
+    margin-top: 20px;        /* Space above the counter */
+    text-align: right;       /* Align text to the right */
+    width: 100%;             /* Full width to align properly */
+}
+
+/* ... rest of your existing CSS ... */
+
+
+/* Color classes for different activities */
+.sleep {
+    background-color: #E6E6FA;
+}
+
+.career-education {
+    background-color: #4169E1;
+}
+
+.transportation {
+    background-color: #87CEEB;
+}
+
+.cooking-eating {
+    background-color: #FF7F50;
+}
+
+.chores {
+    background-color: #FFD700;
+}
+
+.hygiene {
+    background-color: #66CDAA;
+}
+
+.screen-time {
+    background-color: black;
+}
+
+    .dot.free-time {
+        background-color: white;       
+        border: 1px solid black;       
+        box-sizing: border-box; /* Ensures the stroke is part of the dot's size */
+    }
+    
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.legend-item .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.legend-item span {
+    font-size: 14px;
+    color: #666;
+}

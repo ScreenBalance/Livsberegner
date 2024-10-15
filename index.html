@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resten av livet ditt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resten av Ditt Liv</h1>
+        <h2>Om du blir 90</h2>
+        <!-- Age Input Field -->
+        <div class="input-container">
+            <label for="age">Enter your age:</label>
+            <input type="number" id="age" min="0" max="90">
+        </div>
+        <button id="calculate">Calculate</button>
+        
+        <!-- Grid and Counter Container -->
+        <div class="grid-counter-container">
+            <!-- Grid -->
+            <div id="grid" class="grid"></div>
+
+            <!-- Free Time Counter -->
+            <div id="freeTimeCounter" class="free-time-counter"></div>
+        </div>
+        
+        <!-- Screen Time Input Field (Initially Hidden) -->
+        <div id="screenTimeContainer" class="input-container" style="display: none;">
+            <label for="screenTime">Enter your average screen time per day (hours):</label>
+            <input type="number" id="screenTime" min="0" max="24">
+        </div>
+        <div class="legend">
+            <div class="legend-item">
+                <span class="dot free-time"></span>
+                <span>Free Time</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot screen-time"></span>
+                <span>Screen Time</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot hygiene"></span>
+                <span>Hygiene</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot transportation"></span>
+                <span>Transport</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot chores"></span>
+                <span>Chores</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot cooking-eating"></span>
+                <span>Food</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot career-education"></span>
+                <span>Career</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot sleep"></span>
+                <span>Sleep</span>
+            </div>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
